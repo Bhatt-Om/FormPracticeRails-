@@ -10,20 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_20_091225) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_20_110428) do
   create_table "answers", force: :cascade do |t|
-    t.string "option"
-    t.integer "exam_id", null: false
+    t.text "body"
+    t.integer "question_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["exam_id"], name: "index_answers_on_exam_id"
+    t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
-  create_table "exams", force: :cascade do |t|
-    t.string "question"
+  create_table "questions", force: :cascade do |t|
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "answers", "exams"
+  add_foreign_key "answers", "questions"
 end

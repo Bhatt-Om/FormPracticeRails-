@@ -1,0 +1,9 @@
+<h1>Questions#index</h1>
+<p>Find me in app/views/questions/index.html.erb</p>
+
+<% @questions.each do |question| %>
+  <%= question.title %>
+  <% question.answers.each do |answer| %>
+    <p><%= answer.body %></p>
+  <% end %>
+<% end %>

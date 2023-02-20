@@ -1,0 +1,20 @@
+<h1>Questions#new</h1>
+<p>Find me in app/views/questions/new.html.erb</p>
+
+<%= form_with model: @question do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <%= f.fields_for :answers do |answer_fieldes| %>
+    <div>
+      <%= answer_fieldes.label :body %>
+      <%= answer_fieldes.text_field :body %>
+      <%= answer_fieldes.check_box :_destroy %>
+      <%= answer_fieldes.label :_destroy, 'Remove' %>
+    </div>
+  <% end %>
+
+  <%= f.submit %>
+<% end %>
